@@ -1,0 +1,33 @@
+﻿@using medical_plaza.Models;
+@model List<Doctors>
+<table class="table">
+    <thead>
+        <h3>
+            Create
+            <a class="btn btn-primary" asp-action="Create">Create</a>
+        </h3>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">ImageUrL</th>
+        </tr>
+    </thead>
+   
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.ImageUrl</td>
+                <td><a class="btn btn-secondary" asp-action="Update" asp-controller="Doctors" asp-route-id="@item.Id">Update</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-controller="Doctors" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+          
+    </tbody>
+</table>
